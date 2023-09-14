@@ -29,13 +29,13 @@ services:
     environment:
       - GLANCES_OPT: "-C /glances/conf/glances.conf -w"
       - TZ: "${TZ}"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
     labels:
       - "traefik.port=61208"
       - "traefik.frontend.rule=Host:glances.docker.localhost"
